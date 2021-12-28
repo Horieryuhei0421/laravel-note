@@ -77,18 +77,20 @@
         </nav>
 
         <main class="main">
-        @if(session('success'))
+        {{-- @if(session('success'))
             <div class="alert alert-success" role="alert">
               {{ session('success') }}
             </div>
-        @endif
+        @endif --}}
           <div class="row" style='height: 92vh;'>
             <div class="col-md-2 p-0">
               <div class="card h-100">
               <div class="card-header">タグ一覧</div>
               <div class="card-body py-2 px-4">
                 <a class='d-block' href='/'>全て表示</a>
-                  {{-- <a href="/?tag={{ $tag['name'] }}" class='d-block'>{{ $tag['name'] }}</a> --}}
+                  @foreach($tags as $tag)
+                  <a href="/?tag={{ $tag['name'] }}" class='d-block'>{{ $tag['name'] }}</a>
+        @endforeach
                 </div>
               </div>
             </div>
